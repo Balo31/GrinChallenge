@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:GrinChallenge"
+      name = "GrinChallenge">
+      <FileRef
+         location = "group:GrinChallenge.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:GrinChallengeTests"
+         name = "GrinChallengeTests">
+         <FileRef
+            location = "group:GrinChallengeTests-Bridging-Header.h">
+         </FileRef>
+         <FileRef
+            location = "group:/Users/stephanegardon/Desktop/Documents/Grin/GrinChallenge/GrinChallengeTests/WebServices.swift">
+         </FileRef>
+         <FileRef
+            location = "group:GrinChallengeTests.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:GrinChallengeUITests"
+         name = "GrinChallengeUITests">
+         <FileRef
+            location = "group:GrinChallengeUITests-Bridging-Header.h">
+         </FileRef>
+         <FileRef
+            location = "group:GrinChallengeUITests.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
