@@ -11,10 +11,11 @@ import UIKit
 class UserVC: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var shaddowView: UIView!
+    
     var originalContainerFrame: CGRect?
     var viewMoved = false
-    var cells = ["ITEM1","ITEM2","ITEM3"]
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class UserVC: UIViewController {
         
         self.collectionView.register( UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserCollectionViewCell")
         
+        self.shaddowView.dropShadow()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,12 +45,13 @@ class UserVC: UIViewController {
         
     }
     
+    //Mark: Keyboard Functionality
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
     func addObserverKeyboard(){
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:  UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:  UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -55,23 +59,8 @@ class UserVC: UIViewController {
     func removeObserverKeyboard(){
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
-    
-//    func setAvatar(miImagen: Dictionary<String, Any>){
-//
-//        let dto = miImagen["ImagenAvatarURL"]
-//        UserSettings.setAvatar(avatar: dto as? String)
-//        if UserSettings.getAvatar() != nil{
-//            self.cambioImage()
-//            imgUser.image = miAvatar
-//        }else{
-//            imgUser.image = UIImage(named: UserSettings.getAvatar()!)
-//        }
-//    }
-    
-    //Mark: Keyboard Functionality
-    
+
     @objc func keyboardWillShow(notification: NSNotification) {
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -97,8 +86,9 @@ class UserVC: UIViewController {
             viewMoved = false
         }
     }
-
 }
+
+//MARK: - UITextViewDelegate
 extension UserVC:UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         let origHeight = textView.frame.size.height

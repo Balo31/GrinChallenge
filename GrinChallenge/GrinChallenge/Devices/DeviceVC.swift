@@ -49,17 +49,29 @@ class DeviceVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.devicesPeripheral.removeAll()
-        self.tableViewDeviceArea.reloadData()
         self.startScan()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.centralManager.stopScan()
-        let operations =  self.pendingOperations.connectionInProgress
-        
-        for op in operations{
-            op.value.cancel()
+        DispatchQueue.main.async { [weak self] in
+            guard let selfCustom = self else {return }
+            selfCustom.centralManager.stopScan()
+            let operations =  selfCustom.pendingOperations.connectionInProgress
+            
+            for op in operations{
+                op.value.cancel()
+            }
+            
+//            if selfCustom.pendingOperations.connectionInProgress.count > 0 {
+//                selfCustom.pendingOperations.connectionInProgress.removeAll()
+//            }
+//            if selfCustom.devicesPeripheral.count > 0{
+//                selfCustom.devicesPeripheral.removeAll()
+//                selfCustom.tableViewDeviceArea.reloadData()
+//            }
+//            selfCustom.devicesPeripheral.removeAll()
+//            selfCustom.tableViewDeviceArea.reloadData()
+            
         }
 
     }
@@ -147,9 +159,13 @@ extension DeviceVC : CBCentralManagerDelegate{
             for op in operations{
                 op.value.cancel()
             }
-            customSelf.pendingOperations.connectionInProgress.removeAll()
-            customSelf.devicesPeripheral.removeAll()
-            customSelf.tableViewDeviceArea.reloadData()
+            if customSelf.pendingOperations.connectionInProgress.count > 0 {
+                customSelf.pendingOperations.connectionInProgress.removeAll()
+            }
+            if customSelf.devicesPeripheral.count > 0{
+                customSelf.devicesPeripheral.removeAll()
+                customSelf.tableViewDeviceArea.reloadData()
+            }
             customSelf.startLoadDevicesAreaIndicator()
             customSelf.btnReload.isHidden = true
         }
