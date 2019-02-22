@@ -31,6 +31,7 @@ class DeviceVC: UIViewController {
     var devicesPeripheral: [DeviceRecord] = []
     let pendingOperations = PendingOperations()
     
+    @IBOutlet weak var btnReload: UIButton!
     @IBOutlet weak var tableViewDeviceArea: UITableView!
     
     var activityIndicatorViewDeviceArea: UIActivityIndicatorView!
@@ -48,10 +49,21 @@ class DeviceVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.devicesPeripheral.removeAll()
+        self.tableViewDeviceArea.reloadData()
         self.startScan()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.centralManager.stopScan()
+        let operations =  self.pendingOperations.connectionInProgress
+        
+        for op in operations{
+            op.value.cancel()
+        }
+
+    }
     @IBAction func reloadAction(_ sender: Any) {
-        self.devicesPeripheral.removeAll()
         self.startScan()
     }
     
@@ -87,6 +99,8 @@ extension DeviceVC {
 // MARK: - CBCentralManagerDelegate
 extension DeviceVC : CBCentralManagerDelegate{
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        
+        
         switch central.state {
             
         case .unknown:
@@ -114,42 +128,54 @@ extension DeviceVC : CBCentralManagerDelegate{
                         advertisementData: [String : Any],
                         rssi RSSI: NSNumber) {
         print(peripheral)
-//        peripheral.delegate = self
         
         let d = self.devicesPeripheral.filter{ $0.deviceBluetooth.identifier == peripheral.identifier }
         if  d.count == 0 && peripheral.name != nil {
-            self.devicesPeripheral.append(DeviceRecord(deviceBluetooth: peripheral))
-            self.stopLoadDevicesAreaIndicator()
-            self.tableViewDeviceArea.reloadData()
+            DispatchQueue.main.async {[weak self] in
+                guard let customSelf = self else { return }
+                customSelf.devicesPeripheral.append(DeviceRecord(deviceBluetooth: peripheral))
+                customSelf.stopLoadDevicesAreaIndicator()
+                customSelf.tableViewDeviceArea.reloadData()
+            }
         }
 
     }
     func startScan(){
-
-        self.devicesPeripheral.removeAll()
-        self.centralManager.scanForPeripherals(withServices: nil)
-        self.startLoadDevicesAreaIndicator()
+        DispatchQueue.main.async { [weak self] in
+            guard let customSelf = self else { return }
+            let operations =  customSelf.pendingOperations.connectionInProgress
+            for op in operations{
+                op.value.cancel()
+            }
+            customSelf.pendingOperations.connectionInProgress.removeAll()
+            customSelf.devicesPeripheral.removeAll()
+            customSelf.tableViewDeviceArea.reloadData()
+            customSelf.startLoadDevicesAreaIndicator()
+            customSelf.btnReload.isHidden = true
+        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
-            self.stopScan()
+        self.centralManager.scanForPeripherals(withServices: nil)
 
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {[weak self] in
+            guard let customSelf = self else { return }
+            customSelf.stopScan()
         })
     }
     
     func stopScan(){
         self.centralManager.stopScan()
-        let operations =  self.pendingOperations.connectionInProgress
-        
-//        let devicesToDelete = self.devicesPeripheral.filter{$0.state == .new}
-        for op in operations{
-            if devicesPeripheral[op.key.row].deviceBluetooth.state == .connecting{
-                op.value.cancel()
+        DispatchQueue.main.async { [weak self] in
+            guard let customSelf = self else { return }
+            let operations =  customSelf.pendingOperations.connectionInProgress
+            for op in operations{
+                if customSelf.devicesPeripheral[op.key.row].deviceBluetooth.state == .connecting{
+                    op.value.cancel()
+                }
             }
+            customSelf.tableViewDeviceArea.reloadData()
+            customSelf.stopLoadDevicesAreaIndicator()
+            customSelf.btnReload.isHidden = false
         }
-        
-//        self.devicesPeripheral.removeAll{$0.state == .new}
-//        self.tableViewDeviceArea.reloadData()
     }
     
     func connect(device: CBPeripheral){
@@ -194,9 +220,10 @@ extension DeviceVC:UITableViewDataSource, UITableViewDelegate, deviceSaveProtoco
         let connector = DeviceBluetoothConnector(device, self.centralManager)
         connector.completionBlock = {
             if connector.isCancelled { return}
-            DispatchQueue.main.async {
-                self.pendingOperations.connectionInProgress.removeValue(forKey: indexPath)
-                self.tableViewDeviceArea.reloadRows(at: [indexPath], with: .fade)
+            DispatchQueue.main.async {[weak self] in
+                guard let customSelf = self else { return }
+                customSelf.pendingOperations.connectionInProgress.removeValue(forKey: indexPath)
+                customSelf.tableViewDeviceArea.reloadRows(at: [indexPath], with: .fade)
             }
         }
         pendingOperations.connectionInProgress[indexPath] = connector
@@ -208,9 +235,10 @@ extension DeviceVC:UITableViewDataSource, UITableViewDelegate, deviceSaveProtoco
         let getter = InfoDeviceGetter(device, self.centralManager)
         getter.completionBlock = {
             if getter.isCancelled {return}
-            DispatchQueue.main.async {
-                self.pendingOperations.getInformationInProgress.removeValue(forKey: indexPath)
-                self.tableViewDeviceArea.reloadRows(at: [indexPath], with: .fade)
+            DispatchQueue.main.async {[weak self] in
+                guard let customSelf = self else { return }
+                customSelf.pendingOperations.getInformationInProgress.removeValue(forKey: indexPath)
+                customSelf.tableViewDeviceArea.reloadRows(at: [indexPath], with: .fade)
             }
         }
         pendingOperations.getInformationInProgress[indexPath] = getter
@@ -231,9 +259,10 @@ extension DeviceVC:UITableViewDataSource, UITableViewDelegate, deviceSaveProtoco
                 strength: dev.strength ?? "",
                 verHud: true,
                 viewController: self,
-                Success: { data in
+                Success: { [weak self] data in
+                    guard let customSelf = self else { return }
                     print(data)
-                    self.successAddDevices(device:device, index: index!)
+                    customSelf.successAddDevices(device:device, index: index!)
             },
                 Error: {})
             

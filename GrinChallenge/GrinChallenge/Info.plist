@@ -45,6 +45,8 @@
 	<string>Utilizaremos tu ubicación para ayudarte a localizar nuestros Devices más cercanos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Utilizaremos la cámara para que puedas usar el lector QRCode</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Utilizaremos el Bluetooth para que puedas encontrar Devices alrededor</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

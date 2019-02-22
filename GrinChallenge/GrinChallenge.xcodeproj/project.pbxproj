@@ -72,6 +72,21 @@
 		CDCB7255221EC367000EAE1C /* InfoDeviceGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7252221EC367000EAE1C /* InfoDeviceGetter.swift */; };
 		CDCB7256221EEB52000EAE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6A98B3221A21A9004DEF5E /* Assets.xcassets */; };
 		CDCB7257221EEB54000EAE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6A98B3221A21A9004DEF5E /* Assets.xcassets */; };
+		CDCB725D221FA540000EAE1C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB725C221FA53F000EAE1C /* UserVC.swift */; };
+		CDCB725E221FA540000EAE1C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB725C221FA53F000EAE1C /* UserVC.swift */; };
+		CDCB725F221FA540000EAE1C /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB725C221FA53F000EAE1C /* UserVC.swift */; };
+		CDCB7262221FB33D000EAE1C /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7261221FB33D000EAE1C /* UserSettings.swift */; };
+		CDCB7263221FB33D000EAE1C /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7261221FB33D000EAE1C /* UserSettings.swift */; };
+		CDCB7264221FB33D000EAE1C /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7261221FB33D000EAE1C /* UserSettings.swift */; };
+		CDCB7270221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB726E221FCA7C000EAE1C /* UserCollectionViewCell.swift */; };
+		CDCB7271221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB726E221FCA7C000EAE1C /* UserCollectionViewCell.swift */; };
+		CDCB7272221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB726E221FCA7C000EAE1C /* UserCollectionViewCell.swift */; };
+		CDCB7273221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCB726F221FCA7C000EAE1C /* UserCollectionViewCell.xib */; };
+		CDCB7274221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCB726F221FCA7C000EAE1C /* UserCollectionViewCell.xib */; };
+		CDCB7275221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCB726F221FCA7C000EAE1C /* UserCollectionViewCell.xib */; };
+		CDCB7277221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7276221FDAF8000EAE1C /* UICollectionViewExtension.swift */; };
+		CDCB7278221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7276221FDAF8000EAE1C /* UICollectionViewExtension.swift */; };
+		CDCB7279221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB7276221FDAF8000EAE1C /* UICollectionViewExtension.swift */; };
 		CDEB7877221B8A8100EE9E78 /* MockupGetDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB7876221B8A8100EE9E78 /* MockupGetDevices.swift */; };
 		CDEB7878221B8A8100EE9E78 /* MockupGetDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB7876221B8A8100EE9E78 /* MockupGetDevices.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +148,11 @@
 		CDCB7249221E6EDE000EAE1C /* DeviceBluetoothConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBluetoothConnector.swift; sourceTree = "<group>"; };
 		CDCB724E221E9E92000EAE1C /* DeviceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRecord.swift; sourceTree = "<group>"; };
 		CDCB7252221EC367000EAE1C /* InfoDeviceGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDeviceGetter.swift; sourceTree = "<group>"; };
+		CDCB725C221FA53F000EAE1C /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		CDCB7261221FB33D000EAE1C /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		CDCB726E221FCA7C000EAE1C /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDCB726F221FCA7C000EAE1C /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		CDCB7276221FDAF8000EAE1C /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		CDEB7876221B8A8100EE9E78 /* MockupGetDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupGetDevices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +244,10 @@
 		CD6A98DC221A23D5004DEF5E /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				CDCB7265221FC92F000EAE1C /* View */,
+				CDCB7260221FB30C000EAE1C /* UserSettings */,
 				CD6A98E1221A34E0004DEF5E /* UserSB.storyboard */,
+				CDCB725C221FA53F000EAE1C /* UserVC.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -235,6 +258,7 @@
 				CD6A98E8221A4F2C004DEF5E /* UIViewExtension.swift */,
 				CD6A9908221A9D9D004DEF5E /* UIApplicationExtension.swift */,
 				CDCB7244221DE518000EAE1C /* UIGestureRecogniserExtension.swift */,
+				CDCB7276221FDAF8000EAE1C /* UICollectionViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +349,24 @@
 				CDCB724E221E9E92000EAE1C /* DeviceRecord.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CDCB7260221FB30C000EAE1C /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB7261221FB33D000EAE1C /* UserSettings.swift */,
+			);
+			name = UserSettings;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		CDCB7265221FC92F000EAE1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB726E221FCA7C000EAE1C /* UserCollectionViewCell.swift */,
+				CDCB726F221FCA7C000EAE1C /* UserCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CDEB7875221B8A5B00EE9E78 /* MOCKUP */ = {
@@ -447,6 +489,7 @@
 				CDCB721C221CE984000EAE1C /* ScannerViewController.xib in Resources */,
 				CD6A98FD221A9734004DEF5E /* HUD.xib in Resources */,
 				CD6A98E6221A47D0004DEF5E /* DevicesSB.storyboard in Resources */,
+				CDCB7273221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */,
 				CD6A98B4221A21A9004DEF5E /* Assets.xcassets in Resources */,
 				CDCB7228221DC2A9000EAE1C /* DeviceDetectedTVC.xib in Resources */,
 				CD6A9903221A9BB7004DEF5E /* refresh.gif in Resources */,
@@ -459,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCB721D221CE984000EAE1C /* ScannerViewController.xib in Resources */,
+				CDCB7274221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */,
 				CD6A9904221A9BB7004DEF5E /* refresh.gif in Resources */,
 				CDCB7256221EEB52000EAE1C /* Assets.xcassets in Resources */,
 				CD6A98FE221A9734004DEF5E /* HUD.xib in Resources */,
@@ -470,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCB7214221CE063000EAE1C /* refresh.gif in Resources */,
+				CDCB7275221FCA7C000EAE1C /* UserCollectionViewCell.xib in Resources */,
 				CDCB7257221EEB54000EAE1C /* Assets.xcassets in Resources */,
 				CDCB7229221DC2A9000EAE1C /* DeviceDetectedTVC.xib in Resources */,
 			);
@@ -487,6 +532,7 @@
 				CD6A9911221A9E75004DEF5E /* UIImageView+SwiftyGif.swift in Sources */,
 				CDCB724A221E6EDE000EAE1C /* DeviceBluetoothConnector.swift in Sources */,
 				CDCB7216221CE3B6000EAE1C /* ScannerViewController.swift in Sources */,
+				CDCB7270221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */,
 				CD6A98F6221A946A004DEF5E /* GrinWS.swift in Sources */,
 				CD6A991B221AA27D004DEF5E /* AlertHelper.swift in Sources */,
 				CDCB7226221DC2A9000EAE1C /* DeviceDetectedTVC.swift in Sources */,
@@ -495,10 +541,13 @@
 				CD6A98AF221A21A2004DEF5E /* ViewController.swift in Sources */,
 				CDCB7245221DE518000EAE1C /* UIGestureRecogniserExtension.swift in Sources */,
 				CDCB724F221E9E92000EAE1C /* DeviceRecord.swift in Sources */,
+				CDCB7262221FB33D000EAE1C /* UserSettings.swift in Sources */,
 				CD6A98ED221A7A33004DEF5E /* HTTPClient.swift in Sources */,
 				CD6A9909221A9D9D004DEF5E /* UIApplicationExtension.swift in Sources */,
+				CDCB725D221FA540000EAE1C /* UserVC.swift in Sources */,
 				CDCB7212221CBB68000EAE1C /* pawWS.swift in Sources */,
 				CD6A9900221A990B004DEF5E /* HUDs.swift in Sources */,
+				CDCB7277221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */,
 				CD6A98E4221A3579004DEF5E /* MapVC.swift in Sources */,
 				CDCB7219221CE949000EAE1C /* DeviceVC.swift in Sources */,
 				CD6A98FA221A96E2004DEF5E /* HUD.swift in Sources */,
@@ -518,6 +567,7 @@
 				CD6A991C221AA27D004DEF5E /* AlertHelper.swift in Sources */,
 				CD6A98F1221A9385004DEF5E /* GrinUrlSession.swift in Sources */,
 				CDCB721A221CE949000EAE1C /* DeviceVC.swift in Sources */,
+				CDCB7278221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */,
 				CD6A9919221AA019004DEF5E /* ResponseWS.swift in Sources */,
 				CDEB7878221B8A8100EE9E78 /* MockupGetDevices.swift in Sources */,
 				CDCB7213221CBB68000EAE1C /* pawWS.swift in Sources */,
@@ -526,6 +576,7 @@
 				CD6A98F7221A946A004DEF5E /* GrinWS.swift in Sources */,
 				CD6A9914221A9E75004DEF5E /* UIImage+SwiftyGif.swift in Sources */,
 				CD6A9901221A990B004DEF5E /* HUDs.swift in Sources */,
+				CDCB725E221FA540000EAE1C /* UserVC.swift in Sources */,
 				CDCB7254221EC367000EAE1C /* InfoDeviceGetter.swift in Sources */,
 				CDCB724B221E6EDF000EAE1C /* DeviceBluetoothConnector.swift in Sources */,
 				CDCB7250221E9E92000EAE1C /* DeviceRecord.swift in Sources */,
@@ -534,6 +585,8 @@
 				CD6A990A221A9D9D004DEF5E /* UIApplicationExtension.swift in Sources */,
 				CDCB7217221CE3B6000EAE1C /* ScannerViewController.swift in Sources */,
 				CD6A98F4221A941E004DEF5E /* Reachability.swift in Sources */,
+				CDCB7271221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */,
+				CDCB7263221FB33D000EAE1C /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,9 +594,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCB725F221FA540000EAE1C /* UserVC.swift in Sources */,
 				CDCB7251221E9E92000EAE1C /* DeviceRecord.swift in Sources */,
 				CDCB724C221E6EDF000EAE1C /* DeviceBluetoothConnector.swift in Sources */,
 				CDCB7255221EC367000EAE1C /* InfoDeviceGetter.swift in Sources */,
+				CDCB7279221FDAF9000EAE1C /* UICollectionViewExtension.swift in Sources */,
+				CDCB7264221FB33D000EAE1C /* UserSettings.swift in Sources */,
+				CDCB7272221FCA7C000EAE1C /* UserCollectionViewCell.swift in Sources */,
 				CDCB7247221DE518000EAE1C /* UIGestureRecogniserExtension.swift in Sources */,
 				CDCB7227221DC2A9000EAE1C /* DeviceDetectedTVC.swift in Sources */,
 			);

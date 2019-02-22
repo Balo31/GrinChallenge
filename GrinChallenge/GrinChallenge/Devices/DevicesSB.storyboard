@@ -120,6 +120,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Devices" id="1E5-bK-zzF"/>
                     <connections>
+                        <outlet property="btnReload" destination="RFP-Zg-OnM" id="6ah-rU-uC2"/>
                         <outlet property="tableViewDeviceArea" destination="axn-mU-J7p" id="hVt-Za-s1g"/>
                     </connections>
                 </viewController>

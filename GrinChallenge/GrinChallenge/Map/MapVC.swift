@@ -73,6 +73,10 @@ class MapVC: UIViewController , MKMapViewDelegate{
         
         
     }
+
+    @objc func avatarButtonPressed() {
+        self.tabBarController!.selectedIndex = 2
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         switch(CLLocationManager.authorizationStatus()) {
@@ -85,8 +89,28 @@ class MapVC: UIViewController , MKMapViewDelegate{
             }
         default: break
         }
+        // Config AVATAR
+        let pointsItem : UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let pointImageLabel : UILabel = UILabel(frame: CGRect(x:0, y: 0, width: 30, height: 30))
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "icon_user")
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let myString = NSMutableAttributedString(string: "")
+        myString.append(attachmentString)
+        pointImageLabel.attributedText = myString
+        pointImageLabel.textAlignment = .right
         
-       
+        pointsItem.addSubview(pointImageLabel)
+        pointsItem.addTarget(self, action:#selector(avatarButtonPressed), for: .touchUpInside)
+        
+        let item1 = UIBarButtonItem(customView: pointsItem)
+        
+        // Negative Spacer
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -10
+        
+        // SGA puntos commentado
+        self.navigationItem.setRightBarButtonItems([negativeSpacer,item1], animated: true)
     }
     
     //MARK: - Actions
